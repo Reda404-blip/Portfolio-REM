@@ -14,7 +14,6 @@ export function Hero() {
 
   return (
     <section className="relative pt-44 pb-32 overflow-hidden">
-      {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent -z-10 animate-pulse-subtle" />
       <div
         className="absolute top-40 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse-subtle"
@@ -183,7 +182,6 @@ export function Hero() {
               </DialogContent>
             </Dialog>
 
-            {/* Decorative Floating Card */}
             <div className="absolute -top-6 -right-6 w-32 h-32 glass rounded-3xl border border-white/10 flex items-center justify-center animate-bounce-light z-20">
               <div className="text-center">
                 <p className="text-2xl font-black text-primary">{t("hero.year.value")}</p>

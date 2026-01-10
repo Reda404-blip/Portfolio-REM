@@ -13,7 +13,6 @@ interface LanguageContextType {
 
 export const translations = {
   en: {
-    // Navbar
     "nav.about": "About",
     "nav.experience": "Experience",
     "nav.projects": "Portfolio",
@@ -25,7 +24,6 @@ export const translations = {
     "nav.lang.en": "EN",
     "nav.lang.fr": "FR",
 
-    // Hero
     "hero.badge": "Available for PFE Internship 2025",
     "hero.title": "Advanced Finance | Accounting | Python Automation",
     "hero.description":
@@ -54,7 +52,6 @@ export const translations = {
     "hero.year.label": "Year Student",
     "hero.year.value": "5th",
 
-    // Skills
     "skills.badge": "Core Competencies",
     "skills.title": "Skill.Matrix.",
     "skills.description":
@@ -76,7 +73,6 @@ export const translations = {
     "skills.leadership.2": "ENACTUS Member",
     "skills.leadership.3": "Project Management",
 
-    // Experience
     "exp.badge": "Curriculum Vitae",
     "exp.title": "Professional.Journey.",
     "exp.description":
@@ -117,8 +113,24 @@ export const translations = {
     "exp.edu2.period": "2020 - 2021",
     "exp.edu2.desc": "Obtained with Distinction. Strong foundation in financial mathematics and general economics.",
 
-    // Projects
     "projects.badge": "Innovation & Automation",
+    "projects.academic.title": "Academic Competencies",
+    "projects.academic.subtitle": "Finance and accounting foundations.",
+    "projects.academic.1.title": "Financial analysis & performance optimization",
+    "projects.academic.1.desc":
+      "Use financial analysis to assess profitability, solvency, and overall performance with a decision and value-creation focus.",
+    "projects.academic.2.title": "Advanced accounting & Moroccan standards",
+    "projects.academic.2.desc":
+      "Strong skills in general and analytical accounting with solid control of Moroccan accounting standards and closing routines.",
+    "projects.academic.3.title": "Tax & social compliance (TVA, IS, IR)",
+    "projects.academic.3.desc":
+      "Good knowledge of the Moroccan tax system including VAT, IS, and IR, aligned with compliance and optimization needs.",
+    "projects.academic.4.title": "Dashboards, KPIs & financial reporting",
+    "projects.academic.4.desc":
+      "Design and analyze financial dashboards, define relevant KPIs, and deliver clear reporting for strategic steering.",
+    "projects.academic.5.title": "Digitally supported finance processes",
+    "projects.academic.5.desc":
+      "Use digital tools to automate, secure, and optimize finance workflows and improve data tracking and decisions.",
     "projects.title": "Finance.Projects.",
     "projects.description": "Automations and analytics for accounting, tax, and finance teams.",
     "projects.automation": "Automation Toolkit",
@@ -147,7 +159,6 @@ export const translations = {
     "projects.opensource.debtmate.desc":
       "Personal finance and debt management app for tracking loans, interest, and repayment schedules. Provides reminders and guidance to optimize repayments through clear, practical dashboards.",
 
-    // Certifications
     "certs.subtitle": "Licenses & Certifications",
     "certs.title": "Licenses.Certifications.",
     "certs.1.title": "Python Advanced Programming Certificate",
@@ -174,7 +185,6 @@ export const translations = {
     "certs.4.provider.short": "CompTIA",
     "certs.4.date": "Issued Jun 2021",
 
-    // Footer
     "footer.badge": "Get In Touch",
     "footer.title": "Let's Build Digital Excellence Together.",
     "footer.description":
@@ -182,7 +192,7 @@ export const translations = {
     "footer.email.label": "Primary Email",
     "footer.phone.label": "Mobile Phone",
     "footer.location.label": "Location",
-    "footer.location.value": "Ouazzane, Morocco",
+    "footer.location.value": "Kenitra, Morocco",
     "footer.github": "GitHub",
     "footer.github.desc": "Open Source Projects",
     "footer.linkedin": "LinkedIn",
@@ -193,13 +203,12 @@ export const translations = {
     "footer.ryzen.desc": "President & Founder",
     "footer.enactus.initials": "EN",
     "footer.ryzen.initials": "RZ",
-    "footer.copyright": "(c) 2025 Reda El Maaroufi. All Rights Reserved.",
+    "footer.copyright": "(c) 2026 Reda El Maaroufi. All Rights Reserved.",
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
     "footer.security": "Security",
   },
   fr: {
-    // Navbar
     "nav.about": "A propos",
     "nav.experience": "Experience",
     "nav.projects": "Portfolio",
@@ -211,7 +220,6 @@ export const translations = {
     "nav.lang.en": "EN",
     "nav.lang.fr": "FR",
 
-    // Hero
     "hero.badge": "Disponible pour Stage PFE 2025",
     "hero.title": "Advanced Finance | Accounting | Python Automation",
     "hero.description":
@@ -240,7 +248,6 @@ export const translations = {
     "hero.year.label": "Annee d'etudes",
     "hero.year.value": "5e",
 
-    // Skills
     "skills.badge": "Competences cles",
     "skills.title": "Matrice.Competences.",
     "skills.description":
@@ -262,7 +269,6 @@ export const translations = {
     "skills.leadership.2": "Membre ENACTUS",
     "skills.leadership.3": "Gestion de Projets",
 
-    // Experience
     "exp.badge": "Curriculum Vitae",
     "exp.title": "Parcours.Professionnel.",
     "exp.description":
@@ -303,8 +309,24 @@ export const translations = {
     "exp.edu2.period": "2020 - 2021",
     "exp.edu2.desc": "Obtention avec mention bien. Base solide en mathematiques financieres et economie generale.",
 
-    // Projects
     "projects.badge": "Innovation & Automatisation",
+    "projects.academic.title": "Competences Academiques",
+    "projects.academic.subtitle": "Bases solides en finance et comptabilite.",
+    "projects.academic.1.title": "Analyse financiere & optimisation de la performance",
+    "projects.academic.1.desc":
+      "Maitrise des outils d'analyse financiere pour evaluer rentabilite, solvabilite et performance globale, avec une approche orientee decision et creation de valeur.",
+    "projects.academic.2.title": "Comptabilite avancee & normes marocaines",
+    "projects.academic.2.desc":
+      "Competences solides en comptabilite generale et analytique, avec une bonne maitrise des normes marocaines et des mecanismes de controle et cloture.",
+    "projects.academic.3.title": "Fiscalite & conformite sociale (TVA, IS, IR)",
+    "projects.academic.3.desc":
+      "Bonne connaissance du systeme fiscal marocain (TVA, IS, IR) et des obligations fiscales et sociales, dans une logique de conformite et d'optimisation.",
+    "projects.academic.4.title": "Tableaux de bord, KPI & reporting financier",
+    "projects.academic.4.desc":
+      "Capacite a concevoir et analyser des tableaux de bord financiers, definir des KPI pertinents et produire des reportings clairs pour le pilotage.",
+    "projects.academic.5.title": "Processus finances appuyes par des outils numeriques",
+    "projects.academic.5.desc":
+      "Utilisation d'outils numeriques pour automatiser, fiabiliser et optimiser les processus financiers et soutenir la prise de decision.",
     "projects.title": "Projets.Finance.",
     "projects.description": "Automatisation et analytique pour equipes comptables, fiscales et finance.",
     "projects.automation": "Kit d'Automatisation",
@@ -333,7 +355,6 @@ export const translations = {
     "projects.opensource.debtmate.desc":
       "Application de gestion des dettes pour suivre prets, interets et echeances. Rappels et conseils pour optimiser les remboursements via des tableaux clairs.",
 
-    // Certifications
     "certs.subtitle": "Licenses & Certifications",
     "certs.title": "Licenses.Certifications.",
     "certs.1.title": "Python Advanced Programming Certificate",
@@ -360,7 +381,6 @@ export const translations = {
     "certs.4.provider.short": "CompTIA",
     "certs.4.date": "Issued Jun 2021",
 
-    // Footer
     "footer.badge": "Entrer en Contact",
     "footer.title": "Construisons l'Excellence Numerique Ensemble.",
     "footer.description":
@@ -368,7 +388,7 @@ export const translations = {
     "footer.email.label": "Email Principal",
     "footer.phone.label": "Telephone Mobile",
     "footer.location.label": "Localisation",
-    "footer.location.value": "Ouazzane, Maroc",
+    "footer.location.value": "Kenitra, Maroc",
     "footer.github": "GitHub",
     "footer.github.desc": "Projets Open Source",
     "footer.linkedin": "LinkedIn",
@@ -379,7 +399,7 @@ export const translations = {
     "footer.ryzen.desc": "President & Fondateur",
     "footer.enactus.initials": "EN",
     "footer.ryzen.initials": "RZ",
-    "footer.copyright": "(c) 2025 Reda El Maaroufi. Tous les droits reserves.",
+    "footer.copyright": "(c) 2026 Reda El Maaroufi. Tous les droits reserves.",
     "footer.privacy": "Confidentialite",
     "footer.terms": "Conditions",
     "footer.security": "Securite",

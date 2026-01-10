@@ -12,11 +12,9 @@ export function Footer() {
 
   return (
     <footer id="contact" className="relative border-t border-border bg-secondary/30 pt-32 pb-12 overflow-hidden">
-      {/* Background Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-1/2 h-96 bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse-subtle" />
 
       <div className="max-w-7xl mx-auto px-6 space-y-24">
-        {/* Main CTA Section */}
         <div
           ref={contactRef}
           className={`grid lg:grid-cols-2 gap-16 items-center ${contactVisible ? "animate-fade-in-up" : "opacity-0"}`}
@@ -80,7 +78,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Social Links & Engagement */}
         <div
           ref={socialRef}
           className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-border ${socialVisible ? "stagger-animate" : ""}`}
@@ -141,7 +138,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Copyright & Legal */}
         <div
           className={`flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border gap-6 ${contactVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >

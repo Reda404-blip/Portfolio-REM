@@ -80,7 +80,6 @@ export function Experience() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-16">
-        {/* Experience Column */}
         <div ref={expRef} className={expVisible ? "space-y-12" : "space-y-12 opacity-0"}>
           <div className="flex items-center gap-4 mb-8 animate-fade-in-left">
             <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center transition-smooth hover:bg-primary/20 hover:scale-110">
@@ -96,7 +95,6 @@ export function Experience() {
                 className={`group relative transition-smooth hover:translate-x-2 ${expVisible ? "animate-fade-in-left" : "opacity-0"}`}
                 style={{ animationDelay: expVisible ? `${i * 0.1}s` : "0s" }}
               >
-                {/* Timeline Dot */}
                 <div className="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-background bg-primary shadow-[0_0_0_4px_rgba(212,175,55,0.1)] transition-transform group-hover:scale-125 group-hover:shadow-[0_0_0_8px_rgba(212,175,55,0.2)]" />
 
                 <div className="space-y-3">
@@ -136,7 +134,6 @@ export function Experience() {
           </div>
         </div>
 
-        {/* Education Column */}
         <div ref={eduRef} className={eduVisible ? "space-y-12" : "space-y-12 opacity-0"}>
           <div className="flex items-center gap-4 mb-8 animate-fade-in-right">
             <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center transition-smooth hover:bg-primary/20 hover:scale-110">
@@ -152,7 +149,6 @@ export function Experience() {
                 className={`group relative transition-smooth hover:translate-x-2 ${eduVisible ? "animate-fade-in-right" : "opacity-0"}`}
                 style={{ animationDelay: eduVisible ? `${(experiences.length + i) * 0.1}s` : "0s" }}
               >
-                {/* Timeline Dot */}
                 <div className="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-background bg-primary shadow-[0_0_0_4px_rgba(212,175,55,0.1)] transition-transform group-hover:scale-125 group-hover:shadow-[0_0_0_8px_rgba(212,175,55,0.2)]" />
 
                 <div className="space-y-3">

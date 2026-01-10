@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: "Reda El Maaroufi | Finance & Tech Strategist",
   description:
     "Portfolio of El Maaroufi Reda - Specializing in Financial Management, Accounting, and Python Automation.",
-  generator: "v0.app",
   icons: {
     icon: "/images/logo.png",
     apple: "/images/logo.png",
