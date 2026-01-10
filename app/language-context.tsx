@@ -1,0 +1,409 @@
+"use client"
+
+import type React from "react"
+import { createContext, useContext, useState } from "react"
+
+type Language = "en" | "fr"
+
+interface LanguageContextType {
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: string) => string
+}
+
+export const translations = {
+  en: {
+    // Navbar
+    "nav.about": "About",
+    "nav.experience": "Experience",
+    "nav.projects": "Portfolio",
+    "nav.contact": "Contact",
+    "nav.resume": "View Resume",
+    "nav.finance": "Finance & Tech",
+    "nav.name": "Reda El Maaroufi",
+    "nav.initials": "ER",
+    "nav.lang.en": "EN",
+    "nav.lang.fr": "FR",
+
+    // Hero
+    "hero.badge": "Available for PFE Internship 2025",
+    "hero.title": "Advanced Finance | Accounting | Python Automation",
+    "hero.description":
+      "Transforming complex financial processes into efficient, automated, and compliant solutions.",
+    "hero.description.secondary":
+      "Bridging accounting rigor, financial analysis, and data-driven decision-making to optimize workflows and reporting.",
+    "hero.about.title": "About Me",
+    "hero.about.text":
+      "Final-year ENCG student in Financial and Accounting Management. Passionate about financial analysis, accounting, and performance optimization. My academic and practical experience built rigor, analytical thinking, and strong organization. I enjoy applying digital tools to improve finance processes and deliver concrete results.",
+    "hero.about.badge": "ENCG",
+    "hero.about.tag.1": "Finance",
+    "hero.about.tag.2": "Accounting",
+    "hero.about.tag.3": "Automation",
+    "hero.cv.open": "Open CV",
+    "hero.cv.view": "View CV",
+    "hero.cv.title": "Curriculum Vitae",
+    "hero.cv.aria.open": "Open CV",
+    "hero.cv.aria.label": "Reda El Maaroufi CV",
+    "hero.name": "Reda El Maaroufi",
+    "hero.competencies.label": "Core Competencies:",
+    "hero.competencies.1": "Financial Accounting & Reporting - Moroccan & International Standards",
+    "hero.competencies.2": "Control & Performance Analysis - Budgets, KPIs, Dashboards",
+    "hero.competencies.3": "Automation & Python Tools - Streamlining Finance Workflows",
+    "hero.competencies.4": "ENCG Oujda Trained - Solid Finance & Accounting Foundation",
+    "hero.title.subtitle": "Financial Strategist",
+    "hero.year.label": "Year Student",
+    "hero.year.value": "5th",
+
+    // Skills
+    "skills.badge": "Core Competencies",
+    "skills.title": "Skill.Matrix.",
+    "skills.description":
+      "A cross-functional skill set combining traditional finance expertise with modern software engineering.",
+    "skills.finance": "Finance",
+    "skills.technical": "Technical",
+    "skills.leadership": "Leadership",
+    "skills.finance.1": "Financial Analysis",
+    "skills.finance.2": "Moroccan Accounting Standards",
+    "skills.finance.3": "Tax Compliance",
+    "skills.finance.4": "Financial Reporting",
+    "skills.finance.5": "Budgeting & Forecasting",
+    "skills.finance.6": "KPI Dashboards",
+    "skills.technical.1": "Python",
+    "skills.technical.2": "Flask",
+    "skills.technical.3": "SQL",
+    "skills.technical.4": "VBA",
+    "skills.leadership.1": "IT Club President",
+    "skills.leadership.2": "ENACTUS Member",
+    "skills.leadership.3": "Project Management",
+
+    // Experience
+    "exp.badge": "Curriculum Vitae",
+    "exp.title": "Professional.Journey.",
+    "exp.description":
+      "A track record of academic excellence and hands-on experience in the Moroccan financial and fiscal landscape.",
+    "exp.work": "Work Experience",
+    "exp.education": "Academic Background",
+    "exp.2025.title": "Stagiaire En Comptabilite",
+    "exp.2025.company": "Fiduciaire Ghailane - 2025",
+    "exp.2025.location": "Ouazzane",
+    "exp.2025.tag.1": "Audit",
+    "exp.2025.tag.2": "Tax",
+    "exp.2025.tag.3": "VAT/IS/IR",
+    "exp.2025.desc":
+      "Participation in general and analytical accounting work. Contribution to the preparation of fiscal declarations (VAT, Corporate Tax, Personal Tax). Assistance in bank reconciliations and account reviews.",
+    "exp.2024.title": "Stagiaire Fiscal",
+    "exp.2024.company": "Direction Generale Des Impots (DGI) - 2024",
+    "exp.2024.location": "Sale",
+    "exp.2024.tag.1": "Accounting",
+    "exp.2024.tag.2": "Compliance",
+    "exp.2024.tag.3": "Tax",
+    "exp.2024.desc":
+      "Participation in accounting maintenance, tax declarations (Personal Tax, VAT, Corporate Tax), bank reconciliations, and administrative document preparation. Direct observation of fiscal office operations.",
+    "exp.2023.title": "Stagiaire Administratif",
+    "exp.2023.company": "Tresorerie Generale Du Royaume (TGR) - 2023",
+    "exp.2023.location": "Ouazzane",
+    "exp.2023.tag.1": "Public Sector",
+    "exp.2023.tag.2": "Treasury",
+    "exp.2023.tag.3": "Taxes",
+    "exp.2023.desc":
+      "Familiarization with tax collection procedures and public treasury management. Immersion in the administrative environment and introduction to fiscal logic in the public sector.",
+    "exp.edu1.title": "Financial & Accounting Management",
+    "exp.edu1.institution": "ENCG Oujda (National Business & Management School)",
+    "exp.edu1.period": "2021 - Present",
+    "exp.edu1.desc":
+      "Advanced education in management with specialization in corporate finance and advanced accounting.",
+    "exp.edu2.title": "Economics Science Bachelor",
+    "exp.edu2.institution": "IBN-ZOHR High School",
+    "exp.edu2.period": "2020 - 2021",
+    "exp.edu2.desc": "Obtained with Distinction. Strong foundation in financial mathematics and general economics.",
+
+    // Projects
+    "projects.badge": "Innovation & Automation",
+    "projects.title": "Finance.Projects.",
+    "projects.description": "Automations and analytics for accounting, tax, and finance teams.",
+    "projects.automation": "Automation Toolkit",
+    "projects.automation.desc": "Python + Flask tools for fast entry and automated reports.",
+    "projects.logic": "Automation",
+    "projects.python": "Python / Flask",
+    "projects.data": "Data",
+    "projects.sql": "SQL",
+    "projects.interface": "UI",
+    "projects.dashboard": "Dashboard",
+    "projects.sql.title": "Data Engineering",
+    "projects.sql.desc": "Clean structures for fiscal records and reporting.",
+    "projects.explore": "Explore Architecture",
+    "projects.compliance": "Tax Automation",
+    "projects.compliance.desc": "Simple rules and checks aligned with Moroccan tax standards.",
+    "projects.president": "Ryzen IT Club President",
+    "projects.president.desc": "Workshops and community projects to grow digital skills at ENCG Oujda.",
+    "projects.initiatives": "View Work",
+    "projects.live": "Live Finance Tool",
+    "projects.opensource.title": "Open Source Projects",
+    "projects.opensource.host": "github.com/Reda404-blip",
+    "projects.opensource.lumiroster.desc":
+      "Advanced attendance and workforce management with real-time capture, automated reporting, and analytics dashboards. Includes shift planning, presence monitoring, and late/absence alerts built for scale and security.",
+    "projects.opensource.finops.desc":
+      "Financial operations analytics platform that automates reporting, tracks KPIs, and delivers insights with visual analytics. Supports budget tracking, expense analysis, revenue forecasting, and scenario modeling.",
+    "projects.opensource.debtmate.desc":
+      "Personal finance and debt management app for tracking loans, interest, and repayment schedules. Provides reminders and guidance to optimize repayments through clear, practical dashboards.",
+
+    // Certifications
+    "certs.subtitle": "Licenses & Certifications",
+    "certs.title": "Licenses.Certifications.",
+    "certs.1.title": "Python Advanced Programming Certificate",
+    "certs.1.provider": "Coursera",
+    "certs.1.provider.short": "Coursera",
+    "certs.1.date": "Issued Sep 2024",
+    "certs.1.skill.1": "Esprit analytique",
+    "certs.1.skill.2": "Optimisation des processus",
+    "certs.1.skill.3": "Flask",
+    "certs.2.title": "CompTIA Security+",
+    "certs.2.provider": "CompTIA",
+    "certs.2.provider.short": "CompTIA",
+    "certs.2.date": "Issued Jun 2022",
+    "certs.2.skill.1": "Sens du detail",
+    "certs.2.skill.2": "Esprit analytique",
+    "certs.3.title": "Web Development Certificate (HTML, CSS)",
+    "certs.3.provider": "freeCodeCamp",
+    "certs.3.provider.short": "FCC",
+    "certs.3.date": "Issued Apr 2022",
+    "certs.3.skill.1": "Optimisation des processus",
+    "certs.3.skill.2": "Flask",
+    "certs.4.title": "CompTIA A+",
+    "certs.4.provider": "CompTIA",
+    "certs.4.provider.short": "CompTIA",
+    "certs.4.date": "Issued Jun 2021",
+
+    // Footer
+    "footer.badge": "Get In Touch",
+    "footer.title": "Let's Build Digital Excellence Together.",
+    "footer.description":
+      "Currently seeking a Graduation Internship (PFE) opportunity to apply my expertise in Financial Management, Accounting, and Python Automation to drive measurable business impact.",
+    "footer.email.label": "Primary Email",
+    "footer.phone.label": "Mobile Phone",
+    "footer.location.label": "Location",
+    "footer.location.value": "Ouazzane, Morocco",
+    "footer.github": "GitHub",
+    "footer.github.desc": "Open Source Projects",
+    "footer.linkedin": "LinkedIn",
+    "footer.linkedin.desc": "Professional Network",
+    "footer.enactus": "ENACTUS Member",
+    "footer.enactus.desc": "Social Impact Projects",
+    "footer.ryzen": "Ryzen IT Club",
+    "footer.ryzen.desc": "President & Founder",
+    "footer.enactus.initials": "EN",
+    "footer.ryzen.initials": "RZ",
+    "footer.copyright": "(c) 2025 Reda El Maaroufi. All Rights Reserved.",
+    "footer.privacy": "Privacy",
+    "footer.terms": "Terms",
+    "footer.security": "Security",
+  },
+  fr: {
+    // Navbar
+    "nav.about": "A propos",
+    "nav.experience": "Experience",
+    "nav.projects": "Portfolio",
+    "nav.contact": "Contact",
+    "nav.resume": "Voir CV",
+    "nav.finance": "Finance & Tech",
+    "nav.name": "Reda El Maaroufi",
+    "nav.initials": "ER",
+    "nav.lang.en": "EN",
+    "nav.lang.fr": "FR",
+
+    // Hero
+    "hero.badge": "Disponible pour Stage PFE 2025",
+    "hero.title": "Advanced Finance | Accounting | Python Automation",
+    "hero.description":
+      "Transformation des processus financiers en solutions efficaces, automatisees et conformes.",
+    "hero.description.secondary":
+      "Rigueur comptable, analyse financiere et decision data-driven pour optimiser les workflows et le reporting.",
+    "hero.about.title": "A propos",
+    "hero.about.text":
+      "Etudiant en 5e annee a l'ENCG, specialite Gestion Financiere et Comptable. Passionne par l'analyse financiere, la comptabilite et l'optimisation de la performance. Mon parcours academique et mes experiences pratiques ont renforce rigueur, esprit analytique et sens de l'organisation. J'integre des outils numeriques pour optimiser les processus financiers et livrer des resultats concrets.",
+    "hero.about.badge": "ENCG",
+    "hero.about.tag.1": "Finance",
+    "hero.about.tag.2": "Comptabilite",
+    "hero.about.tag.3": "Automatisation",
+    "hero.cv.open": "Ouvrir CV",
+    "hero.cv.view": "Voir CV",
+    "hero.cv.title": "Curriculum Vitae",
+    "hero.cv.aria.open": "Ouvrir CV",
+    "hero.cv.aria.label": "CV Reda El Maaroufi",
+    "hero.name": "Reda El Maaroufi",
+    "hero.competencies.label": "Competences cles:",
+    "hero.competencies.1": "Comptabilite et reporting - Normes marocaines et internationales",
+    "hero.competencies.2": "Controle et analyse de performance - Budgets, KPI, dashboards",
+    "hero.competencies.3": "Automatisation et outils Python - Optimisation des workflows",
+    "hero.competencies.4": "Formation ENCG Oujda - Base solide finance et comptabilite",
+    "hero.title.subtitle": "Strategiste Financier",
+    "hero.year.label": "Annee d'etudes",
+    "hero.year.value": "5e",
+
+    // Skills
+    "skills.badge": "Competences cles",
+    "skills.title": "Matrice.Competences.",
+    "skills.description":
+      "Un ensemble de competences combinant expertise finance et ingenierie logicielle moderne.",
+    "skills.finance": "Finance",
+    "skills.technical": "Technique",
+    "skills.leadership": "Leadership",
+    "skills.finance.1": "Analyse Financiere",
+    "skills.finance.2": "Normes Comptables Marocaines",
+    "skills.finance.3": "Conformite Fiscale",
+    "skills.finance.4": "Reporting Financier",
+    "skills.finance.5": "Budgets & Previsions",
+    "skills.finance.6": "Tableaux de Bord KPI",
+    "skills.technical.1": "Python",
+    "skills.technical.2": "Flask",
+    "skills.technical.3": "SQL",
+    "skills.technical.4": "VBA",
+    "skills.leadership.1": "President du Club IT",
+    "skills.leadership.2": "Membre ENACTUS",
+    "skills.leadership.3": "Gestion de Projets",
+
+    // Experience
+    "exp.badge": "Curriculum Vitae",
+    "exp.title": "Parcours.Professionnel.",
+    "exp.description":
+      "Un parcours d'excellence academique et d'experience pratique dans le paysage financier et fiscal marocain.",
+    "exp.work": "Experience Professionnelle",
+    "exp.education": "Formation Academique",
+    "exp.2025.title": "Stagiaire En Comptabilite",
+    "exp.2025.company": "Fiduciaire Ghailane - 2025",
+    "exp.2025.location": "Ouazzane",
+    "exp.2025.tag.1": "Audit",
+    "exp.2025.tag.2": "Fiscalite",
+    "exp.2025.tag.3": "TVA/IS/IR",
+    "exp.2025.desc":
+      "Participation aux travaux de comptabilite generale et analytique. Contribution aux declarations fiscales (TVA, IS, IR). Assistance aux rapprochements bancaires et revision des comptes.",
+    "exp.2024.title": "Stagiaire Fiscal",
+    "exp.2024.company": "Direction Generale Des Impots (DGI) - 2024",
+    "exp.2024.location": "Sale",
+    "exp.2024.tag.1": "Comptabilite",
+    "exp.2024.tag.2": "Conformite",
+    "exp.2024.tag.3": "Fiscalite",
+    "exp.2024.desc":
+      "Participation a la tenue comptable, declarations fiscales (IR, TVA, IS), rapprochements bancaires et documents administratifs. Observation directe du fonctionnement d'un cabinet fiscal.",
+    "exp.2023.title": "Stagiaire Administratif",
+    "exp.2023.company": "Tresorerie Generale Du Royaume (TGR) - 2023",
+    "exp.2023.location": "Ouazzane",
+    "exp.2023.tag.1": "Secteur Public",
+    "exp.2023.tag.2": "Tresorerie",
+    "exp.2023.tag.3": "Impots",
+    "exp.2023.desc":
+      "Familiarisation avec les procedures de collecte des impots et la gestion de la tresorerie publique. Immersion dans le monde administratif et introduction aux logiques fiscales du secteur public.",
+    "exp.edu1.title": "Gestion Financiere et Comptable",
+    "exp.edu1.institution": "ENCG Oujda (Ecole Nationale de Commerce et de Gestion)",
+    "exp.edu1.period": "2021 - Present",
+    "exp.edu1.desc":
+      "Formation superieure en management, specialisation finance d'entreprise et comptabilite approfondie.",
+    "exp.edu2.title": "Baccalaureat Science Economique",
+    "exp.edu2.institution": "Lycee IBN-ZOHR",
+    "exp.edu2.period": "2020 - 2021",
+    "exp.edu2.desc": "Obtention avec mention bien. Base solide en mathematiques financieres et economie generale.",
+
+    // Projects
+    "projects.badge": "Innovation & Automatisation",
+    "projects.title": "Projets.Finance.",
+    "projects.description": "Automatisation et analytique pour equipes comptables, fiscales et finance.",
+    "projects.automation": "Kit d'Automatisation",
+    "projects.automation.desc": "Outils Python + Flask pour saisie rapide et reporting automatise.",
+    "projects.logic": "Automatisation",
+    "projects.python": "Python / Flask",
+    "projects.data": "Data",
+    "projects.sql": "SQL",
+    "projects.interface": "UI",
+    "projects.dashboard": "Dashboard",
+    "projects.sql.title": "Data Engineering",
+    "projects.sql.desc": "Structures claires pour dossiers fiscaux et reporting.",
+    "projects.explore": "Explorer l'Architecture",
+    "projects.compliance": "Automatisation Fiscale",
+    "projects.compliance.desc": "Regles simples alignees sur les normes fiscales marocaines.",
+    "projects.president": "President du Club Ryzen IT",
+    "projects.president.desc": "Ateliers et projets pour developper les competences numeriques a l'ENCG Oujda.",
+    "projects.initiatives": "Voir les Projets",
+    "projects.live": "Outil Finance Live",
+    "projects.opensource.title": "Projets Open Source",
+    "projects.opensource.host": "github.com/Reda404-blip",
+    "projects.opensource.lumiroster.desc":
+      "Gestion avancee des presences et plannings avec capture en temps reel, rapports automatises et tableaux de bord. Inclut planning, suivi de presence, alertes et securite.",
+    "projects.opensource.finops.desc":
+      "Plateforme d'analytique finance qui automatise le reporting, suit les KPI et fournit des insights. Inclut budget, depenses, previsions de revenus et scenarios.",
+    "projects.opensource.debtmate.desc":
+      "Application de gestion des dettes pour suivre prets, interets et echeances. Rappels et conseils pour optimiser les remboursements via des tableaux clairs.",
+
+    // Certifications
+    "certs.subtitle": "Licenses & Certifications",
+    "certs.title": "Licenses.Certifications.",
+    "certs.1.title": "Python Advanced Programming Certificate",
+    "certs.1.provider": "Coursera",
+    "certs.1.provider.short": "Coursera",
+    "certs.1.date": "Issued Sep 2024",
+    "certs.1.skill.1": "Esprit analytique",
+    "certs.1.skill.2": "Optimisation des processus",
+    "certs.1.skill.3": "Flask",
+    "certs.2.title": "CompTIA Security+",
+    "certs.2.provider": "CompTIA",
+    "certs.2.provider.short": "CompTIA",
+    "certs.2.date": "Issued Jun 2022",
+    "certs.2.skill.1": "Sens du detail",
+    "certs.2.skill.2": "Esprit analytique",
+    "certs.3.title": "Web Development Certificate (HTML, CSS)",
+    "certs.3.provider": "freeCodeCamp",
+    "certs.3.provider.short": "FCC",
+    "certs.3.date": "Issued Apr 2022",
+    "certs.3.skill.1": "Optimisation des processus",
+    "certs.3.skill.2": "Flask",
+    "certs.4.title": "CompTIA A+",
+    "certs.4.provider": "CompTIA",
+    "certs.4.provider.short": "CompTIA",
+    "certs.4.date": "Issued Jun 2021",
+
+    // Footer
+    "footer.badge": "Entrer en Contact",
+    "footer.title": "Construisons l'Excellence Numerique Ensemble.",
+    "footer.description":
+      "A la recherche d'une opportunite de stage PFE pour appliquer mes competences en finance, comptabilite et automatisation Python afin de creer un impact mesurable.",
+    "footer.email.label": "Email Principal",
+    "footer.phone.label": "Telephone Mobile",
+    "footer.location.label": "Localisation",
+    "footer.location.value": "Ouazzane, Maroc",
+    "footer.github": "GitHub",
+    "footer.github.desc": "Projets Open Source",
+    "footer.linkedin": "LinkedIn",
+    "footer.linkedin.desc": "Reseau Professionnel",
+    "footer.enactus": "Membre ENACTUS",
+    "footer.enactus.desc": "Projets a impact social",
+    "footer.ryzen": "Club Informatique Ryzen",
+    "footer.ryzen.desc": "President & Fondateur",
+    "footer.enactus.initials": "EN",
+    "footer.ryzen.initials": "RZ",
+    "footer.copyright": "(c) 2025 Reda El Maaroufi. Tous les droits reserves.",
+    "footer.privacy": "Confidentialite",
+    "footer.terms": "Conditions",
+    "footer.security": "Securite",
+  },
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguage] = useState<Language>("en")
+
+  const t = (key: string): string => {
+    return translations[language][key as keyof (typeof translations)[typeof language]] || key
+  }
+
+  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext)
+  if (!context) {
+    throw new Error("useLanguage must be used within LanguageProvider")
+  }
+  return context
+}
+
+
