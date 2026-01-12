@@ -1,6 +1,6 @@
 "use client"
 
-import { Code2, Shield, Users, ArrowUpRight, LineChart, FileSpreadsheet, Scale, Gauge, Cpu } from "lucide-react"
+import { Code2, Shield, Users, ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/app/language-context"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
@@ -11,57 +11,6 @@ export function TerminalProjects() {
   return (
     <section id="projects" className="py-24">
       <div className="max-w-7xl mx-auto px-6 space-y-12">
-        <div className="relative overflow-hidden rounded-[40px] border border-border/60 bg-gradient-to-br from-background via-background/80 to-primary/15 p-6 md:p-12">
-          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
-          <div className="absolute -bottom-32 -left-16 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(212,175,55,0.08),transparent_40%)]" />
-          <div className="relative grid gap-10 md:grid-cols-[1fr_1.4fr] items-start">
-            <div className="space-y-5 animate-fade-in-up">
-              <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground font-semibold">
-                {t("projects.academic.title")}
-              </p>
-              <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-                {t("projects.academic.subtitle")}
-              </h3>
-              <div className="h-[3px] w-20 rounded-full bg-primary/70" />
-              <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-semibold text-primary">
-                <span className="h-[1px] w-10 bg-primary/60" />
-                Academic Focus
-              </div>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2">
-              {[
-                LineChart,
-                FileSpreadsheet,
-                Scale,
-                Gauge,
-                Cpu,
-              ].map((Icon, index) => (
-                <div
-                  key={index}
-                  className="group relative rounded-3xl border border-border/60 bg-card/90 p-5 transition-smooth hover:border-primary/50 hover:shadow-[0_20px_60px_-30px_rgba(212,175,55,0.35)] hover:-translate-y-1"
-                >
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                  <div className="relative flex items-start gap-4">
-                    <div className="h-11 w-11 rounded-2xl border border-primary/30 bg-primary/10 text-primary flex items-center justify-center shadow-[0_0_25px_rgba(212,175,55,0.25)]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/90">
-                        {t(`projects.academic.${index + 1}.title`)}
-                      </p>
-                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                        {t(`projects.academic.${index + 1}.desc`)}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-primary/40 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-4 animate-fade-in-up">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold">
             {t("projects.badge")}

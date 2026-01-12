@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUpRight, CheckCircle2, X } from "lucide-react"
+import { ArrowUpRight, X } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
@@ -10,7 +10,6 @@ import { PdfPreview } from "@/components/pdf-preview"
 export function Hero() {
   const { t } = useLanguage()
   const cvPdfUrl = "/Curriculum%20Vitae%20Reda%20El%20Maaroufi.pdf"
-  const titleParts = t("hero.title").split(" | ")
 
   return (
     <section className="relative pt-44 pb-32 overflow-hidden">
@@ -19,6 +18,7 @@ export function Hero() {
         className="absolute top-40 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse-subtle"
         style={{ animationDelay: "0.3s" }}
       />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(212,175,55,0.08),transparent_40%)] -z-10" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
@@ -30,82 +30,66 @@ export function Hero() {
               >
                 {t("hero.badge")}
               </Badge>
-              <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.05] text-foreground">
-                {titleParts.length >= 3 ? (
-                  <>
-                    <span className="block text-5xl md:text-7xl text-foreground">
-                      <span className="relative inline-flex items-center">
-                        <span className="absolute -inset-x-2 -inset-y-1 rounded-full bg-primary/10 blur-md" />
-                        <span className="relative bg-gradient-to-r from-primary via-foreground to-foreground bg-clip-text text-transparent">
-                          {titleParts[0]}
-                        </span>
-                      </span>
-                    </span>
-                    <span className="mt-4 inline-flex items-center gap-3 text-sm uppercase tracking-[0.35em] font-semibold">
-                      <span className="h-[1px] w-8 bg-primary/60" />
-                      <span className="text-muted-foreground/80">{titleParts[1]}</span>
-                      <span className="text-primary">{titleParts[2]}</span>
-                    </span>
-                  </>
-                ) : (
-                  <span className="block">{t("hero.title")}</span>
-                )}
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[0.95] text-foreground">
+                <span className="relative inline-block">
+                  <span className="absolute -inset-x-6 -inset-y-3 rounded-full bg-primary/10 blur-2xl" />
+                  <span className="relative bg-gradient-to-r from-primary via-foreground to-foreground bg-clip-text text-transparent">
+                    {t("hero.title")}
+                  </span>
+                </span>
               </h1>
+              <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.35em] font-semibold text-muted-foreground">
+                <span>{t("hero.title.subtitle")}</span>
+                <span className="h-1 w-1 rounded-full bg-primary/70" />
+                <span className="text-primary">
+                  {t("hero.year.value")} {t("hero.year.label")}
+                </span>
+              </div>
             </div>
 
             <div
-              className="max-w-2xl rounded-3xl border border-border/60 bg-gradient-to-br from-background via-background/80 to-primary/10 p-7 text-sm text-muted-foreground leading-relaxed shadow-[0_40px_100px_-60px_rgba(0,0,0,0.4)] backdrop-blur-sm animate-fade-in-up relative overflow-hidden"
+              className="group max-w-2xl rounded-[32px] border border-border/60 bg-gradient-to-br from-background via-background/85 to-primary/10 p-7 text-sm text-muted-foreground leading-relaxed shadow-[0_40px_120px_-70px_rgba(0,0,0,0.45)] backdrop-blur-sm animate-fade-in-up relative overflow-hidden"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="absolute -top-10 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
-              <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-primary/40 via-transparent to-transparent" />
-              <div className="flex items-center justify-between gap-4 mb-4">
+              <div className="absolute -top-12 -right-20 h-48 w-48 rounded-full bg-primary/10 blur-2xl" />
+              <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-primary/50 via-transparent to-transparent" />
+              <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground font-semibold">
+                  <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground font-semibold">
                     {t("hero.about.title")}
                   </p>
-                  <p className="text-base font-semibold text-foreground mt-2">
-                    {t("hero.title.subtitle")}
+                  <p className="mt-3 text-base md:text-lg text-foreground/80 leading-relaxed">
+                    {t("hero.about.text")}
                   </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {[t("hero.about.tag.1"), t("hero.about.tag.2"), t("hero.about.tag.3")].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-primary font-semibold"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="h-11 w-11 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center text-primary text-[11px] font-bold tracking-widest">
-                  {t("hero.about.badge")}
+                <div className="space-y-3">
+                  {[1, 2, 3].map((index) => (
+                    <div
+                      key={index}
+                      className="rounded-2xl border border-border/60 bg-background/70 p-4 transition-smooth group-hover:border-primary/40"
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold">
+                        {t(`hero.about.meta.${index}.label`)}
+                      </p>
+                      <p className="mt-2 text-sm font-bold text-foreground">
+                        {t(`hero.about.meta.${index}.value`)}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              <p className="text-foreground/70">{t("hero.about.text")}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {[t("hero.about.tag.1"), t("hero.about.tag.2"), t("hero.about.tag.3")].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-primary font-semibold"
-                  >
-                    {tag}
-                  </span>
-                ))}
               </div>
             </div>
 
-            <div className="pt-2 stagger-animate" style={{ animationDelay: "0.3s" }}>
-              <div className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-muted-foreground font-semibold">
-                <span className="h-[1px] w-10 bg-primary/40" />
-                {t("hero.competencies.label")}
-              </div>
-              <div className="mt-4 rounded-2xl border border-border/60 bg-background/60 p-5 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
-                <ul className="space-y-3 text-sm md:text-base text-foreground stagger-animate">
-                  {[1, 2, 3, 4].map((index) => (
-                    <li
-                      key={index}
-                      className="competency-card group relative rounded-xl border border-border/60 bg-gradient-to-r from-primary/5 via-transparent to-transparent p-3 pl-10 transition-smooth hover:border-primary/40 hover:translate-x-1 hover:shadow-lg hover:shadow-primary/10"
-                    >
-                      <span className="absolute left-4 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-primary animate-pulse-subtle" />
-                      <span className="absolute left-2 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-primary/10 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
-                      <CheckCircle2 className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary transition-transform group-hover:scale-110" />
-                      <span className="font-medium">{t(`hero.competencies.${index}`)}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </div>
 
           <div className="lg:col-span-5 relative animate-fade-in-right" style={{ animationDelay: "0.2s" }}>

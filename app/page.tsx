@@ -13,10 +13,10 @@ export default function PortfolioPage() {
       <Hero />
       <div className="max-w-7xl mx-auto px-6">
         <Experience />
+        <SkillsTicker />
         <TerminalProjects />
         <Certifications />
       </div>
-      <SkillsTicker />
       <Footer />
     </main>
   )
