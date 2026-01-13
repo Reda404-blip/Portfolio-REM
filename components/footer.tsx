@@ -42,10 +42,10 @@ export function Footer() {
                   {t("footer.email.label")}
                 </p>
                 <a
-                  href="mailto:elmaaroufireda@ump.ac.ma"
+                  href="mailto:contact@elmaaroufireda.org"
                   className="text-foreground font-bold hover:text-primary transition-colors"
                 >
-                  elmaaroufireda@ump.ac.ma
+                  contact@elmaaroufireda.org
                 </a>
               </div>
             </div>

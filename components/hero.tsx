@@ -48,44 +48,92 @@ export function Hero() {
             </div>
 
             <div
-              className="group max-w-2xl rounded-[32px] border border-border/60 bg-gradient-to-br from-background via-background/85 to-primary/10 p-7 text-sm text-muted-foreground leading-relaxed shadow-[0_40px_120px_-70px_rgba(0,0,0,0.45)] backdrop-blur-sm animate-fade-in-up relative overflow-hidden"
+              className="group max-w-2xl rounded-[44px] border border-border/60 bg-gradient-to-br from-background via-background/90 to-primary/15 p-8 md:p-10 text-sm text-muted-foreground leading-relaxed shadow-[0_50px_140px_-90px_rgba(0,0,0,0.5)] backdrop-blur-sm animate-fade-in-up relative overflow-hidden"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="absolute -top-12 -right-20 h-48 w-48 rounded-full bg-primary/10 blur-2xl" />
-              <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-primary/50 via-transparent to-transparent" />
-              <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground font-semibold">
+              <div className="absolute -top-24 -right-20 h-64 w-64 rounded-full bg-primary/14 blur-3xl" />
+              <div className="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(212,175,55,0.1),transparent_45%)]" />
+              <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-primary/70 via-transparent to-transparent" />
+              <div className="relative space-y-8">
+                <div className="flex flex-wrap items-center gap-4">
+                  <p className="text-[11px] uppercase tracking-[0.45em] text-muted-foreground font-semibold">
                     {t("hero.about.title")}
                   </p>
-                  <p className="mt-3 text-base md:text-lg text-foreground/80 leading-relaxed">
-                    {t("hero.about.text")}
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {[t("hero.about.tag.1"), t("hero.about.tag.2"), t("hero.about.tag.3")].map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-primary font-semibold"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <span className="h-px w-12 bg-primary/70" />
+                  <div className="rounded-full border border-primary/35 bg-primary/15 px-3 py-1 text-[10px] uppercase tracking-[0.35em] text-primary font-semibold">
+                    {t("hero.about.badge")}
                   </div>
                 </div>
-                <div className="space-y-3">
-                  {[1, 2, 3].map((index) => (
-                    <div
-                      key={index}
-                      className="rounded-2xl border border-border/60 bg-background/70 p-4 transition-smooth group-hover:border-primary/40"
-                    >
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold">
-                        {t(`hero.about.meta.${index}.label`)}
+                <div className="grid gap-10 md:grid-cols-[1.45fr_0.55fr]">
+                  <div className="space-y-9">
+                    <div className="border-l-2 border-primary/60 pl-5 space-y-3">
+                      <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground font-semibold">
+                        {t("hero.about.section.profile")}
                       </p>
-                      <p className="mt-2 text-sm font-bold text-foreground">
-                        {t(`hero.about.meta.${index}.value`)}
+                      <p className="text-2xl md:text-4xl font-semibold text-foreground/95 leading-[1.15]">
+                        {t("hero.about.profile.lead")}
+                      </p>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        {t("hero.about.profile.detail")}
                       </p>
                     </div>
-                  ))}
+                    <div className="space-y-4">
+                      <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground font-semibold">
+                        {t("hero.about.section.expertise")}
+                      </p>
+                      <div className="space-y-3 text-sm md:text-base text-muted-foreground">
+                        {[1, 2, 3].map((index) => (
+                          <div key={index} className="flex items-start gap-3">
+                            <span className="mt-2 h-2 w-2 rounded-full bg-primary/70" />
+                            <span>{t(`hero.about.expertise.${index}`)}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {[t("hero.about.tag.1"), t("hero.about.tag.2"), t("hero.about.tag.3")].map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full border border-primary/30 bg-primary/12 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-primary font-semibold transition-smooth hover:border-primary/50 hover:bg-primary/20"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="rounded-3xl border border-border/60 bg-background/70 p-6 shadow-[0_24px_70px_-55px_rgba(0,0,0,0.45)]">
+                      <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground font-semibold">
+                        {t("hero.about.section.objective")}
+                      </p>
+                      <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+                        {t("hero.about.objective.body")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="rounded-3xl border border-border/60 bg-background/70 p-6 shadow-[0_24px_70px_-55px_rgba(0,0,0,0.45)]">
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground font-semibold">
+                      {t("hero.about.section.highlights")}
+                    </p>
+                    <div className="mt-5 space-y-4">
+                      {[1, 2, 3].map((index) => (
+                        <div
+                          key={index}
+                          className="rounded-2xl border border-border/60 bg-gradient-to-br from-background/90 via-background/70 to-primary/10 p-4 transition-smooth hover:border-primary/50 hover:shadow-[0_18px_50px_-35px_rgba(212,175,55,0.45)]"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="h-2 w-2 rounded-full bg-primary/80 shadow-[0_0_12px_rgba(212,175,55,0.55)]" />
+                            <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground font-semibold">
+                              {t(`hero.about.meta.${index}.label`)}
+                            </p>
+                          </div>
+                          <p className="mt-3 text-base md:text-lg font-semibold text-foreground leading-snug">
+                            {t(`hero.about.meta.${index}.value`)}
+                          </p>
+                          <div className="mt-3 h-px w-12 bg-gradient-to-r from-primary/70 to-transparent" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
