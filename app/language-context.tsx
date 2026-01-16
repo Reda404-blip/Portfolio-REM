@@ -24,7 +24,7 @@ export const translations = {
     "nav.lang.en": "EN",
     "nav.lang.fr": "FR",
 
-    "hero.badge": "Available for PFE Internship 2025",
+    "hero.badge": "Available for PFE Internship 2026",
     "hero.title": "Advanced Finance",
     "hero.description":
       "Transforming complex financial processes into efficient, automated, and compliant solutions.",
