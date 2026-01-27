@@ -69,13 +69,13 @@ export function PdfPreview({ url, className }: PdfPreviewProps) {
             target="_blank"
             rel="noreferrer"
           >
-            {t("hero.cv.open")}
+            {t("hero.cta.cv")}
           </a>
         ) : (
           <>
             <canvas ref={canvasRef} className="max-h-full max-w-full" />
             <div className="absolute bottom-4 right-4 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-bold text-primary">
-              {t("hero.cv.open")}
+              {t("hero.cta.cv")}
             </div>
           </>
         )}
