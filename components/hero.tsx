@@ -46,7 +46,7 @@ export function Hero() {
                   </span>
                 </span>
               </h1>
-              <p className="text-sm sm:text-lg text-muted-foreground font-medium max-w-[28rem] mx-auto lg:mx-0">
+              <p className="text-sm sm:text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-[28rem] md:max-w-[36rem] mx-auto lg:mx-0 whitespace-pre-line md:pl-4 md:py-3 md:pr-4 md:border-l-2 md:border-primary/40 md:bg-gradient-to-r md:from-primary/10 md:to-transparent md:rounded-r-2xl">
                 {t("hero.subtitle")}
               </p>
             </div>
