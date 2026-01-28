@@ -6,10 +6,12 @@ import { Experience } from "@/components/experience"
 import { Certifications } from "@/components/certifications"
 import { TerminalProjects } from "@/components/terminal-projects"
 import { Footer } from "@/components/footer"
+import { ScrollGuide } from "@/components/scroll-guide"
 
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-background">
+      <ScrollGuide />
       <Navbar />
       <Hero />
       <About />

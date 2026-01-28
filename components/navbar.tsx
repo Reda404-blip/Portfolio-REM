@@ -15,29 +15,30 @@ export function Navbar() {
     { href: "#experience", label: t("nav.experience") },
     { href: "#projects", label: t("nav.projects") },
     { href: "#skills", label: t("nav.skills") },
+    { href: "#certifications", label: t("nav.certifications") },
     { href: "#contact", label: t("nav.contact") },
   ]
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/95 backdrop-blur-xl shadow-sm animate-fade-in-down relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/80 -z-10 sm:hidden" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-20 flex items-center justify-between">
-        <div className="flex flex-1 items-center gap-2 sm:gap-3 group min-w-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-20 flex items-center justify-between gap-2 md:grid md:grid-cols-[auto_1fr_auto] md:items-center">
+        <div className="flex items-center gap-2 sm:gap-3 group min-w-0 md:justify-self-start">
           <div
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-smooth group-hover:scale-110 overflow-hidden sm:animate-wow-drop"
             style={{ animationDelay: "0.05s" }}
           >
             <img src="/images/logo.png" alt={t("nav.name")} className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
           </div>
-          <div className="flex flex-col min-w-0 max-w-[190px] sm:max-w-none">
+          <div className="flex flex-col min-w-0">
             <span
-              className="font-bold text-[12px] sm:text-sm tracking-tight transition-smooth group-hover:text-primary truncate sm:animate-wow-drop text-foreground"
+              className="font-bold text-[12px] sm:text-sm tracking-tight transition-smooth group-hover:text-primary sm:animate-wow-drop text-foreground leading-tight"
               style={{ animationDelay: "0.12s" }}
             >
               {t("nav.name")}
             </span>
             <span
-              className="text-[9px] sm:text-[10px] text-muted-foreground uppercase tracking-[0.16em] sm:tracking-widest font-semibold truncate sm:animate-wow-drop"
+              className="text-[9px] sm:text-[10px] text-muted-foreground uppercase tracking-[0.16em] sm:tracking-widest font-semibold sm:animate-wow-drop leading-tight"
               style={{ animationDelay: "0.18s" }}
             >
               {t("nav.finance")}
@@ -45,7 +46,7 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground">
+        <div className="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.2em] font-semibold text-muted-foreground md:justify-self-center md:-translate-x-5">
           {navLinks.map((link, index) => (
             <Link
               key={link.href}
@@ -58,7 +59,29 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0 md:justify-self-end">
+          <div className="flex sm:hidden items-center gap-1 bg-secondary/30 rounded-full p-1 border border-border">
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest transition-smooth ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t("nav.lang.en")}
+            </button>
+            <button
+              onClick={() => setLanguage("fr")}
+              className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest transition-smooth ${
+                language === "fr"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t("nav.lang.fr")}
+            </button>
+          </div>
           <div className="hidden sm:flex items-center gap-2 bg-secondary/30 rounded-full p-1 border border-border">
             <button
               onClick={() => setLanguage("en")}

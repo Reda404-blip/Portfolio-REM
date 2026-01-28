@@ -4,6 +4,7 @@
   "nav.experience": "Experience",
   "nav.projects": "Projects",
   "nav.skills": "Skills",
+  "nav.certifications": "Certifications",
   "nav.contact": "Contact",
   "nav.finance": "Finance & Automation",
   "nav.name": "Reda El Maaroufi",

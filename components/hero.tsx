@@ -81,7 +81,7 @@ export function Hero() {
               </p>
             )}
 
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 lg:items-start">
               <Button asChild size="lg" className="rounded-full px-6 sm:px-7 font-semibold shadow-xl shadow-primary/20">
                 <a href={cvPdfUrl} download>
                   {t("hero.cta.cv")}
