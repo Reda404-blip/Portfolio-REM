@@ -44,14 +44,14 @@ export function Certifications() {
   ]
 
   return (
-    <section id="certifications" className="py-24">
-      <div className="max-w-7xl mx-auto px-6 space-y-12">
+    <section id="certifications" className="py-16 sm:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10 sm:space-y-12">
         <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] items-end animate-fade-in-up">
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold">
               {t("certs.subtitle")}
             </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight">{t("certs.title")}</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">{t("certs.title")}</h2>
           </div>
           <div />
         </div>

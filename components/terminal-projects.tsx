@@ -42,13 +42,13 @@ export function TerminalProjects() {
   ]
 
   return (
-    <section id="projects" className="py-24">
-      <div className="max-w-7xl mx-auto px-6 space-y-12">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10 sm:space-y-12">
         <div className="space-y-4 animate-fade-in-up">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold">
             {t("projects.badge")}
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">{t("projects.title")}</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">{t("projects.title")}</h2>
           <p className="text-muted-foreground text-sm font-medium leading-relaxed max-w-2xl">
             {t("projects.description")}
           </p>

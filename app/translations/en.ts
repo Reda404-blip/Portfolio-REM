@@ -16,7 +16,7 @@
 
   "hero.badge": "Available for PFE Internship 2026",
   "hero.value": "5th-year student - Financial & Accounting Management | ENCG",
-  "hero.title": "Passionate about optimizing financial processes and automation with Python",
+  "hero.title": "5th-year student - Financial & Accounting Management | ENCG",
   "hero.subtitle":
     "I combine accounting expertise, financial analysis, and digital tools to support strategic decision-making.",
   "hero.description":

@@ -43,12 +43,12 @@ export function SkillsTicker() {
   ]
 
   return (
-    <section id="skills" className="relative py-24 overflow-hidden">
+    <section id="skills" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-transparent to-secondary/30" />
       <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute -bottom-24 left-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-6 space-y-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 space-y-10 sm:space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 animate-fade-in-up">
           <div className="space-y-3">
             <Badge
@@ -57,13 +57,13 @@ export function SkillsTicker() {
             >
               {t("skills.badge")}
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight">{t("skills.title")}</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">{t("skills.title")}</h2>
             <p className="text-sm text-muted-foreground max-w-xl">{t("skills.description")}</p>
           </div>
-          <div className="h-[2px] w-24 bg-primary/50" />
+          <div className="h-[2px] w-16 sm:w-24 bg-primary/50" />
         </div>
 
-        <div ref={skillsRef} className={`grid gap-6 md:grid-cols-3 ${skillsVisible ? "stagger-animate" : ""}`}>
+        <div ref={skillsRef} className={`grid gap-5 sm:gap-6 md:grid-cols-3 ${skillsVisible ? "stagger-animate" : ""}`}>
           {skillCategories.map((cat, index) => {
             const Icon = cat.icon
             return (

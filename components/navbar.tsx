@@ -19,24 +19,25 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/70 backdrop-blur-xl animate-fade-in-down">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-3 group">
+    <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/95 backdrop-blur-xl shadow-sm animate-fade-in-down relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/80 -z-10 sm:hidden" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-20 flex items-center justify-between">
+        <div className="flex flex-1 items-center gap-2 sm:gap-3 group min-w-0">
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center transition-smooth group-hover:scale-110 overflow-hidden animate-wow-drop"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-smooth group-hover:scale-110 overflow-hidden sm:animate-wow-drop"
             style={{ animationDelay: "0.05s" }}
           >
-            <img src="/images/logo.png" alt={t("nav.name")} className="h-10 w-10 object-contain" />
+            <img src="/images/logo.png" alt={t("nav.name")} className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col min-w-0 max-w-[190px] sm:max-w-none">
             <span
-              className="font-bold text-sm tracking-tight transition-smooth group-hover:text-primary animate-wow-drop"
+              className="font-bold text-[12px] sm:text-sm tracking-tight transition-smooth group-hover:text-primary truncate sm:animate-wow-drop text-foreground"
               style={{ animationDelay: "0.12s" }}
             >
               {t("nav.name")}
             </span>
             <span
-              className="text-[10px] text-muted-foreground uppercase tracking-widest font-medium animate-wow-drop"
+              className="text-[9px] sm:text-[10px] text-muted-foreground uppercase tracking-[0.16em] sm:tracking-widest font-semibold truncate sm:animate-wow-drop"
               style={{ animationDelay: "0.18s" }}
             >
               {t("nav.finance")}
@@ -57,11 +58,11 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <div className="hidden sm:flex items-center gap-2 bg-secondary/30 rounded-full p-1 border border-border">
             <button
               onClick={() => setLanguage("en")}
-              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-smooth animate-wow-drop ${
+              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-smooth sm:animate-wow-drop ${
                 language === "en"
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                   : "text-muted-foreground hover:text-foreground"
@@ -72,7 +73,7 @@ export function Navbar() {
             </button>
             <button
               onClick={() => setLanguage("fr")}
-              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-smooth animate-wow-drop ${
+              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-smooth sm:animate-wow-drop ${
                 language === "fr"
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                   : "text-muted-foreground hover:text-foreground"
@@ -88,7 +89,7 @@ export function Navbar() {
             aria-label={t("nav.menu.open")}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="md:hidden h-10 w-10 rounded-full border border-border bg-background/80 flex items-center justify-center shadow-sm transition-smooth hover:border-primary/40 hover:shadow-md animate-wow-drop"
+            className="md:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full border border-border bg-background/90 flex items-center justify-center shadow-sm transition-smooth hover:border-primary/40 hover:shadow-md sm:animate-wow-drop"
             style={{ animationDelay: "0.7s" }}
           >
             <Menu className="h-5 w-5 text-foreground" />
@@ -105,12 +106,20 @@ export function Navbar() {
           />
           <div
             id="mobile-menu"
-            className="absolute right-0 top-0 h-full w-72 bg-background border-l border-border shadow-2xl p-6 flex flex-col"
+            className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-secondary/40 shadow-2xl p-6 flex flex-col"
           >
             <div className="flex items-center justify-between">
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold">
-                {t("nav.menu.title")}
-              </p>
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl border border-border/70 bg-card/80 shadow-sm flex items-center justify-center">
+                  <img src="/images/logo.png" alt={t("nav.name")} className="h-6 w-6 object-contain" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold tracking-tight">{t("nav.name")}</p>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground font-semibold">
+                    {t("nav.menu.title")}
+                  </p>
+                </div>
+              </div>
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
@@ -120,15 +129,21 @@ export function Navbar() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="mt-10 flex flex-col gap-5 text-sm font-semibold uppercase tracking-[0.2em] stagger-drop">
+            <div className="mt-12 grid gap-4">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
-                  {link.label}
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-center justify-between rounded-2xl border border-border/70 bg-card/90 px-4 py-4 text-sm font-semibold uppercase tracking-[0.24em] text-foreground transition-smooth hover:border-primary/40 hover:text-primary hover:shadow-lg hover:shadow-primary/10"
+                >
+                  <span>{link.label}</span>
+                  <span className="text-xs text-muted-foreground transition-colors group-hover:text-primary">→</span>
                 </Link>
               ))}
             </div>
-            <div className="mt-auto pt-8 border-t border-border">
-              <div className="flex items-center gap-2 bg-secondary/30 rounded-full p-1 border border-border w-fit">
+            <div className="mt-auto pt-10 border-t border-border">
+              <div className="flex items-center gap-2 bg-card/80 rounded-full p-1.5 border border-border/70 shadow-sm w-fit mx-auto">
                 <button
                   onClick={() => setLanguage("en")}
                   className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest transition-smooth ${

@@ -70,22 +70,22 @@ export function Footer() {
   }
 
   return (
-    <footer id="contact" className="relative border-t border-border bg-secondary/30 pt-32 pb-12 overflow-hidden">
+    <footer id="contact" className="relative border-t border-border bg-secondary/30 pt-20 sm:pt-24 lg:pt-32 pb-10 sm:pb-12 overflow-hidden">
       <div className="absolute bottom-0 left-0 w-1/2 h-96 bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse-subtle" />
 
-      <div className="max-w-7xl mx-auto px-6 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12 sm:space-y-16 lg:space-y-20">
         <div
           ref={contactRef}
           className={`grid lg:grid-cols-2 gap-12 items-start ${contactVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             <Badge
               variant="outline"
               className="text-primary border-primary/20 bg-primary/5 uppercase tracking-[0.2em] px-4 animate-scale-in"
             >
               {t("contact.badge")}
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">{t("contact.title")}</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">{t("contact.title")}</h2>
             <p className="text-muted-foreground font-medium leading-relaxed max-w-lg">
               {t("contact.description")}
             </p>
@@ -101,7 +101,7 @@ export function Footer() {
                   </p>
                   <a
                     href="mailto:contact@elmaaroufireda.org"
-                    className="text-foreground font-semibold hover:text-primary transition-colors"
+                    className="text-foreground font-semibold hover:text-primary transition-colors break-all"
                   >
                     contact@elmaaroufireda.org
                   </a>
@@ -157,7 +157,7 @@ export function Footer() {
 
           <form
             onSubmit={handleSubmit}
-            className={`rounded-3xl border border-border bg-card/90 p-8 space-y-5 transition-smooth ${contactVisible ? "animate-fade-in-right" : ""}`}
+            className={`rounded-3xl border border-border bg-card/90 p-6 sm:p-8 space-y-5 transition-smooth ${contactVisible ? "animate-fade-in-right" : ""}`}
             noValidate
           >
             <h3 className="text-xl font-bold">{t("contact.form.title")}</h3>

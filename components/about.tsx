@@ -12,11 +12,11 @@ export function About() {
   const values = [t("about.values.1"), t("about.values.2"), t("about.values.3")]
 
   return (
-    <section id="about" className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-16 sm:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
           ref={ref}
-          className={`grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+          className={`grid lg:grid-cols-[1.2fr_0.8fr] gap-8 sm:gap-10 lg:gap-12 items-start ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <div className="space-y-6">
             <Badge
@@ -26,19 +26,19 @@ export function About() {
               {t("about.badge")}
             </Badge>
             <div className="space-y-3">
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight">{t("about.title")}</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">{t("about.title")}</h2>
               <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground font-semibold">
                 {t("about.subtitle")}
               </p>
             </div>
-            <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
+            <div className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
               <p>{t("about.p1")}</p>
               <p>{t("about.p2")}</p>
               <p>{t("about.p3")}</p>
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-border/60 bg-card/90 p-6 shadow-[0_24px_70px_-55px_rgba(0,0,0,0.45)]">
+          <div className="rounded-[32px] border border-border/60 bg-card/90 p-5 sm:p-6 shadow-[0_24px_70px_-55px_rgba(0,0,0,0.45)]">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold">
               {t("about.values.title")}
             </p>

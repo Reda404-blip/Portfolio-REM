@@ -17,7 +17,7 @@
   "hero.badge": "Disponible pour stage de fin d'études (PFE) 2026",
   "hero.value":
     "Étudiant en 5e année - Gestion Financière et Comptable | ENCG",
-  "hero.title": "Passionné par l'optimisation des processus financiers et l'automatisation via Python",
+  "hero.title": "Étudiant en 5e année - Gestion Financière et Comptable | ENCG",
   "hero.subtitle":
     "Je combine expertise comptable, analyse financière et maîtrise des outils digitaux pour appuyer la prise de décision stratégique.",
   "hero.description":
