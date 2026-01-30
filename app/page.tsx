@@ -7,10 +7,12 @@ import { Certifications } from "@/components/certifications"
 import { TerminalProjects } from "@/components/terminal-projects"
 import { Footer } from "@/components/footer"
 import { ScrollGuide } from "@/components/scroll-guide"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-background">
+      <ScrollReveal />
       <ScrollGuide />
       <Navbar />
       <Hero />
